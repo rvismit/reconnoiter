@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # Author: DRUK
-# Bulls Eye: https://github.com/BullsEye0
-# linkedin: https://www.linkedin.com/in/jolandadekoff
-
+# Reconnoiter: https://github.com/rvismit/reconnoiter
+# twitter: https://www.twitter.com/rvismit
 # Created Dec 2019 | Monastery
 # It's new updates coming s00n.
 
