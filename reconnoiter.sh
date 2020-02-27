@@ -4,7 +4,7 @@
 # Reconnoiter: https://github.com/rvismit/reconnoiter
 # twitter: https://www.twitter.com/rvismit
 # Created Dec 2019 | Monastery
-# It's new updates coming s00n.
+# It's new updates coming soon.
 
 echo            "  ____                                  _ _"
 echo            " |  _ \ ___  ___ ___  _ __  _ __   ___ (_) |_ ___ _ __"
