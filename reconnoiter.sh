@@ -2,7 +2,7 @@
 
 # Author: DRUK
 # Reconnoiter: https://github.com/rvismit/reconnoiter
-# twitter: https://www.twitter.com/rvismit
+# twitter: https://www.twitter.com/th3_druk
 # Created Dec 2019 | Monastery
 # New updates coming soon.
 
@@ -23,7 +23,7 @@ read vardomain
         curl  https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=$vardomain | jq '.' | sort -u | grep $vardomain >> output.txt
         curl  https://api.hackertarget.com/hostsearch/?q=$vardomain | cut -d',' -f1 | sort -u | grep $vardomain >> output.txt
         curl  https://certspotter.com/api/v0/certs?domain=$vardomain | sort -u >> output.txt
-        curl  http://web.archive.org/cdx/search/cdx?url=*.$vardomain/\&output=text\&fl=original\&collapse=urlkey |sort| grep $vardomain |sed -e 's_https*://__' -e "s/\/.*//" -e 's/:.*//' -e 's/^www\.//' | sort -u >> output.txt 
+        curl  http://web.archive.org/cdx/search/cdx?url=*.$vardomain/\&output=text\&fl=original\&collapse=urlkey | grep $vardomain |sed -e 's_https*://__' -e "s/\/.*//" -e 's/:.*//' -e 's/^www\.//' | sort -u >> output.txt 
 	curl  http://index.commoncrawl.org/CC-MAIN-2018-22-index?url=*.$vardomain\&output=json | jq -r .url | sort -u >> output.txt
         curl  https://api.threatminer.org/v2/domain.php?q=$vardomain\&rt=5 | jq '.' | sort -u | grep $vardomain >> output.txt
         curl  https://dns.bufferover.run/dns?q=.$vardomain |jq -r .FDNS_A[]| cut -d',' -f2| sort -u >> output.txt
