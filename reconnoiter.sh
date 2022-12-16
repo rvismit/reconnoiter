@@ -22,7 +22,7 @@ read vardomain
                 then
                 echo "Resolved"
         curl  https://api.hackertarget.com/hostsearch/?q=$vardomain | cut -d',' -f1 | sort -u | grep $vardomain >> subdomains.txt
-        curl  http://web.archive.org/cdx/search/cdx?url=*.$vardomain/\&output=text\&fl=original\&collapse=urlkey | grep $vardomain | sed -e 's_https*://__' -e "s/\/.*// >> subdomains.txt        
+        curl  http://web.archive.org/cdx/search/cdx?url=*.$vardomain/\&output=text\&fl=original\&collapse=urlkey | grep $vardomain | sed -e 's_https*://__' -e "s/\/.*//" >> subdomains.txt        
 	curl  http://index.commoncrawl.org/CC-MAIN-2018-22-index?url=*.$vardomain\&output=json | jq -r .url | sort -u >>  subdomains.txt
         curl  https://api.threatminer.org/v2/domain.php?q=$vardomain\&rt=5 | jq '.' | sort -u | grep $vardomain >>  subdomains.txt
         curl  https://riddler.io/search?q=pld:$vardomain | grep -Po "(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sort -u >>  subdomains.txt
